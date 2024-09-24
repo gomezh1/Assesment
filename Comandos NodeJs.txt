@@ -1,0 +1,20 @@
+Comandos node js 
+
+Instlacion de libreria express
+npm i express
+
+Ejecucion de dependencia  "serve": "node index.js" ubiscada en el package.json 
+npm run serve
+
+Para cambios o bajar servidor se requiere ctrl+cambios
+
+Instalcion paquete nodemon npm i nodemon
+
+Para iniciar con nodemon que es un paquete que facilita el desarrollo, pra evitar el reinicio del servidor , instalamos el paquete node y validamos que este en las dependencias de package.json, luego creamos una variable, en este caso la llamamos dev
+npm run dev
+
+Para evitar bajar y subir servidor utilizamos el comando 
+npm i nodemon -D
+
+instalar mongo 
+npm i mongoose

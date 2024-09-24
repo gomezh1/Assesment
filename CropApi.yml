@@ -1,0 +1,547 @@
+openapi: 3.0.0
+info:
+  title: CropConnect
+  description: API designed to streamline agricultural management and innovation
+  version: 1.0.0
+paths:
+  /createUser:
+    post:
+      summary: create user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestUserBody'
+      responses:
+        '201':
+          description: successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessfulResponseCreate'
+      security:
+        - api_key: []
+  /readUser/{userId}:
+    get:
+      summary: Returns the user with the specified id.
+      parameters:
+        - in: path
+          required: true
+          name: userId
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessfulResponseReadUser'
+      security:
+        - api_key: []
+  /deleteUser/{userId}:
+    delete:
+      summary: Delete a user.
+      parameters:
+        - in: path
+          required: true
+          name: userId
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessfulResponseCreate'
+      security:
+        - api_key: []
+  /updateUser:
+    post:
+      summary: update user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestUpdateUserBody'
+      responses:
+        '200':
+          description: successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessfulResponseCreate'
+      security:
+        - api_key: []
+  /read/{Id}:
+    get:
+      summary: Returns the crop with the specified id.
+      parameters:
+        - in: path
+          required: true
+          name: Id
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessfulResponseReadId'
+      security:
+        - api_key: []
+  /read/crops:
+    get:
+      summary: Returns all crops.
+      responses:
+        '200':
+          description: successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessfulResponseReadId'
+      security:
+        - api_key: []
+  /create/crop:
+    post:
+      summary: Create a crop.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestCreateCrop'
+      responses:
+        '201':
+          description: successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessfulResponseCreate'
+      security:
+        - api_key: []
+  /update/crop/{id}:
+    post:
+      summary: Update a crop.
+      parameters:
+        - in: path
+          required: true
+          name: id
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestUpdateCrop'
+      responses:
+        '200':
+          description: successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessfulUpdate'
+      security:
+        - api_key: []
+  /delete/crop/{id}:
+    delete:
+      summary: Delete a crop.
+      parameters:
+        - in: path
+          required: true
+          name: id
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful response.
+      security:
+        - api_key: []
+  /buyCrops:
+    post:
+      summary: Buy a crop.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestUpdateBuyBody'
+      responses:
+        '200':
+          description: successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessfulResponseCreate'
+      security:
+        - api_key: []
+  /saleCrops:
+    get:
+      summary: method to sell Crops.
+      x-amazon-apigateway-request-validator: params-only
+      parameters:
+        - in: query
+          required: true
+          name: Id
+          schema:
+            type: string
+        - in: query
+          required: true
+          name: numerOffer
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessfulResponseSaleCrop'
+      security:
+        - api_key: []
+  /createMonitoringCrop:
+    post:
+      summary: create a monitoring to Crop.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestcreateMonitoringCropBody'
+      responses:
+        '200':
+          description: successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessfulResponseCreate'
+      security:
+        - api_key: []
+  /readMonitoringCrop/{monitoringId}:
+    get:
+      summary: Returns the monitoring Crop with the specified id.
+      x-amazon-apigateway-request-validator: params-only
+      parameters:
+        - in: path
+          required: true
+          name: monitoringId
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessfulResponseMonitoringCrop'
+      security:
+        - api_key: []
+  /updateMonitoringCrop:
+    post:
+      summary: update a monitoring Crop.
+      x-amazon-apigateway-request-validator: all
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestUdateMonitoringCropBody'
+      responses:
+        '200':
+          description: successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessfulResponseCreate'
+      security:
+        - api_key: []
+  /deleteMonitoringCrop/{monitoringId}:
+    delete:
+      summary: Delete a monitoring Crop.
+      parameters:
+        - in: path
+          required: true
+          name: monitoringId
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessfulResponseCreate'
+      security:
+        - api_key: []
+components:
+  schemas:
+    RequestUserBody:
+      type: object
+      required:
+        - userName
+        - userLastName
+        - email
+        - role
+      properties:
+        userName:
+          type: string
+          description: The first name of the user.
+        userLastName:
+          type: string
+          description: The last name of the user.
+        email:
+          type: string
+          description: The email address of the user.
+        role:
+          type: string
+          description: The role of the user.
+    SuccessfulResponseCreate: 
+      type: object
+      properties:
+        requestDateTime:
+          type: string
+        user:
+          type: object
+          properties:
+            userId:
+              type: string
+            userName:
+              type: string
+            userLastName:
+              type: string
+            email:
+              type: string
+            role:
+              type: string
+    SuccessfulResponseReadUser:
+      type: object
+      properties:
+        requestDateTime:
+          type: string
+        user:
+          type: object
+          properties:
+            userId:
+              type: string
+            userName:
+              type: string
+            userLastName:
+              type: string
+            email:
+              type: string
+            role:
+              type: string
+    SuccessfulResponseReadId:
+      type: object
+      properties:
+        requestDateTime:
+          type: string
+        crop:
+          type: object
+          properties:
+            Id:
+              type: string
+            userId:
+              type: string
+            type:
+              type: string
+            variety:
+              type: string
+            ubication:
+              type: string
+            size:
+              type: string
+            sowingDate:
+              type: string
+            harvestDate:
+              type: string
+            purchase:
+              type: boolean
+            paymentMethod:
+              type: string
+            offer:
+              type: boolean
+    RequestUpdateUserBody:
+      required:
+        - userId
+        - userName
+        - userLastName
+        - email
+        - role
+      type: object
+      properties:
+        userId:
+          type: string
+        userName:
+          type: string
+        userLastName:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+    RequestUpdateBuyBody:
+      required:
+        - cropId
+        - offer
+        - paymentMethod
+      type: object
+      properties:
+        eventId:
+          type: string
+        eventName:
+          type: string
+        eventCategory:
+          type: string
+        eventGameName:
+          type: string
+        numberOfTicket:
+          type: number
+        ticketPrice:
+          type: number
+    RequestcreateMonitoringCropBody:
+      type: object
+      properties:
+        cropId:
+          type: string
+        date:
+          type: string
+    SuccessfulResponseSaleCrop:
+      type: object
+      properties:
+        detail:
+          type: object
+          properties:
+            descripttion:
+              type: string
+            discountNumber:
+              type: number
+            paymentMethod:
+              type: number
+            value:
+              type: number
+    SuccessfulResponseMonitoringCrop:
+      type: object
+      properties:
+        cropId:
+          type: string
+        date:
+          type: string
+    RequestCreateCrop:
+      type: object
+      required:
+        - name
+        - quantityArea
+        - ubication
+        - variety
+        - size
+        - sowingDate
+        - harvestDate
+        - purchase
+        - paymentMethod
+        - price
+      properties:
+        name:
+          type: string
+          description: The name of the crop.
+        quantityArea:
+          type: number
+          description: The area where the crop is planted.
+        variety:
+          type: string
+          description: The variety of the crop.
+        ubication:
+          type: string
+          description: The location of the crop.
+        size:
+          type: number
+          description: The size of the crop area.
+        sowingDate:
+          type: string
+          format: date
+          description: The date the crop was sown.
+        harvestDate:
+          type: string
+          format: date
+          description: The expected date of harvest.
+        purchase:
+          type: boolean
+          description: Whether the crop is for purchase.
+        paymentMethod:
+          type: string
+          description: The method of payment.
+        price:
+          type: number
+          description: The price of the crop.
+    RequestUdateMonitoringCropBody:
+      type: object
+      properties:
+        name:
+          type: string
+        quantityArea:
+          type: number
+        variety:
+          type: string
+        ubication:
+          type: string
+        size:
+          type: number
+        sowingDate:
+          type: string
+        harvestDate:
+          type: string
+        purchase:
+          type: string
+        paymentMethod:
+          type: string
+        price:
+          type: number
+    RequestUpdateCrop:
+      type: object
+      properties:
+        name:
+          type: string
+        quantityArea:
+          type: number
+        variety:
+          type: string
+        ubication:
+          type: string
+        size:
+          type: number
+        sowingDate:
+          type: string
+        harvestDate:
+          type: string
+        purchase:
+          type: string
+        paymentMethod:
+          type: string
+        price:
+          type: number
+    SuccessfulUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        quantityArea:
+          type: number
+        variety:
+          type: string
+        ubication:
+          type: string
+        size:
+          type: number
+        sowingDate:
+          type: string
+        harvestDate:
+          type: string
+        purchase:
+          type: string
+        paymentMethod:
+          type: string
+        price:
+          type: number
+  securitySchemes:
+    api_key:  # Por ajustar 
+      type: apiKey
+      in: header  # POr ajustar sitio donde se envia la clave 
+      name: Authorization  # Pete ajustar lgar donde se envia la clave 

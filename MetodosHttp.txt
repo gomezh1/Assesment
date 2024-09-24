@@ -1,0 +1,44 @@
+createUser /createUser
+summay Create user
+
+getUser /readUser/{userId}
+summary Return the user with the specified id
+
+deleteUser deleteUser/{userId}
+sumary Delete user
+
+updateUser /updateUser
+sumary Update user
+
+getCrops read/{cropId}
+summary Returns the crop with the specified id.
+
+postCrops /createCrop
+summary CreateCrop
+
+modifyCrops /updateCrop
+summary Update crop
+ 
+deleteCrops delete/{cropId}
+summary Delete crop
+
+
+
+buyCrops buycrop/{Idcrop}
+summary Method buy crop
+
+saleCrops salecrop/{Idcrop}
+summary Method sale crop
+
+createMonitoring /createMonitoring
+
+readMonitoringCrop/{monitoringId}
+updateMonitoring /createMonitoring/{monitoringId}
+
+deleteMonitoring /delete/{monitorinId}
+
+
+SuccessfulResponseReadUse
+
+
+
