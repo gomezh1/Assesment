@@ -2,7 +2,7 @@ const axios = require('axios');
 
 // URL base de la API externa
 const apiClient = axios.create({
-  baseURL: 'https://api.weatherbit.io/v2.0',  // Base URL de Weatherbit
+  baseURL: 'https://api.weatherbit.io/v2.0/current',  // Base URL de Weatherbit
   timeout: 10000,  // Tiempo de espera
   headers: {
     'Content-Type': 'application/json'

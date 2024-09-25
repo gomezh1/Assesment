@@ -4,9 +4,14 @@ const CropSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "Please enter product name"],
+      required: [true, "Please enter crop name"],
     },
 
+    /*id:{
+      type:String,
+      required: true,
+      default:"Digite el id de la cultivo"
+    },*/
     quantityArea: {
       type: Number,
       required: true,

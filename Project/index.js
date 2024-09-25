@@ -3,16 +3,18 @@ const express = require("express");
 //import mongoose from 'mongoose';
 const mongoose = require("mongoose");
 // Importar funciones consumo api externa
-const { getData, postData } = require('./apiService')
+const { getData, postData } = require("./apiService");
+// Importar libreria dotenv para gestonar variables de entorno
+require('dotenv').config();
 //Importa bd model
 const Crop = require("./models/crop.model.js");
-const swaggerJsDoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 const app = express();
-const cropRoute = require('./routes/crop.route.js');
+const cropRoute = require("./routes/crop.route.js");
 //Middleware
 app.use(express.json());
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({ extended: false }));
 
 //routes
 app.use("/read/crops", cropRoute);
@@ -30,26 +32,30 @@ app.get("/read/crops", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-
+//Create Crop
 app.post("/create/crop", async (req, res) => {
-    try {
-      const crop = await Crop.create(req.body);
-      res.status(201).json(crop);
-      console.log("Crop created")
-      } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  });
+  try {
+    const crop = await Crop.create(req.body);
+    res.status(201).json(crop);
+    console.log("Crop created");
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
-//Consulta solo un solo cultivo
+//Get one Crop
 app.get("/read/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const product = await Crop.findById(id);
     const isValidObjectId = /^[a-fA-F0-9]{24}$/.test(id);
     if (!isValidObjectId) {
-      return res.status(400).json({ message: "ID no válido, debe tener 24 caracteres hexadecimales" });
-    }else if (!product) {
+      return res
+        .status(400)
+        .json({
+          message: "ID no válido, debe tener 24 caracteres hexadecimales",
+        });
+    } else if (!product) {
       return res.status(404).json({ message: "Crops not found" });
     }
     res.status(200).json(product);
@@ -93,6 +99,19 @@ app.delete("/delete/crop/:id", async (req, res) => {
 });
 
 
+// Create user
+app.post("./")
+
+/*mongoose
+  .connect(
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
+  )
+  .then(() => {
+    console.log("Connected to database!");
+  })
+  .catch((error) => {
+    console.error("Connection refused: ", error);
+  });*/
 
 mongoose
   .connect(
