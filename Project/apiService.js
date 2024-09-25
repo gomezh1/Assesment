@@ -13,7 +13,7 @@ const apiClient = axios.create({
 const apiKey = '533590a8a8f248b6be5e666ca494115b';  
 
 async function getCurrentWeather(city) {
-  const endpoint = `/current?city=${city}&key=${apiKey}`;
+  const endpoint = `https://api.weatherbit.io/v2.0/current?city=${city}&key=${apiKey}`;
   
   try {
     const response = await apiClient.get(endpoint);
