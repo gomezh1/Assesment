@@ -1,0 +1,14 @@
+{
+    "_id": "ObjectId",
+    "tipo_analisis": "string",  
+    "cultivo_id": "ObjectId",  
+    "fecha_analisis": "date",
+    "resultados": "string",  
+    "recomendaciones": [
+      {
+        "tipo_recomendacion": "string",  
+        "descripcion": "string"
+      }
+    ]
+  }
+  

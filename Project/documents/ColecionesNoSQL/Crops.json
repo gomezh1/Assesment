@@ -1,0 +1,42 @@
+{
+    "_id": "ObjectId",
+    "usuario_id": "ObjectId",  
+    "tipo": "string",  
+    "variedad": "string",
+    "ubicacion": {
+      "latitud": "decimal",
+      "longitud": "decimal"
+    },
+    "tamaño": "decimal",  
+    "fechas": {
+      "siembra": "date",
+      "cosecha_estimada": "date"
+    },
+    "sensores": [
+      {
+        "sensor_id": "ObjectId",  
+        "tipo_sensor": "string",  
+        "ubicacion": {
+          "latitud": "decimal",
+          "longitud": "decimal"
+        },
+        "fecha_instalacion": "date",
+        "datos": [
+          {
+            "fecha_hora": "date",
+            "valor": "decimal"
+          }
+        ]
+      }
+    ],
+    "alertas": [
+      {
+        "alerta_id": "ObjectId",
+        "tipo_alerta": "string",  
+        "descripcion": "string",
+        "fecha_alerta": "date",
+        "estado": "string"  
+      }
+    ]
+  }
+  

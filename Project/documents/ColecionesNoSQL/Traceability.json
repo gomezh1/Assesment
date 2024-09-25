@@ -1,0 +1,18 @@
+{
+    "_id": "ObjectId",
+    "lote_id": "ObjectId",  
+    "cultivo_id": "ObjectId",  
+    "codigo_qr": "string",  
+    "etapas": [
+      {
+        "etapa": "string",  
+        "descripcion": "string",
+        "fecha": "date",
+        "ubicacion": {
+          "latitud": "decimal",
+          "longitud": "decimal"
+        }
+      }
+    ]
+  }
+  

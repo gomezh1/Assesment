@@ -1,0 +1,13 @@
+{
+    "_id": "ObjectId",
+    "nombre": "string",
+    "email": "string",
+    "rol": "string",  
+    "contraseña": "string",
+    "fecha_registro": "date",
+    "ubicacion": {
+      "direccion": "string",
+      "ciudad": "string",
+      "pais": "string"
+    }
+  }

@@ -1,0 +1,25 @@
+{
+    "_id": "ObjectId",
+    "usuario_id": "ObjectId",  
+    "producto": "string",  
+    "variedad": "string",
+    "cantidad": "decimal",  
+    "precio": "decimal",
+    "fecha_publicacion": "date",
+    "estado": "string",  
+    "compras": [
+      {
+        "compra_id": "ObjectId",
+        "comprador_id": "ObjectId",  
+        "cantidad_comprada": "decimal",
+        "fecha_compra": "date",
+        "precio_total": "decimal",
+        "pago": {
+          "pago_id": "ObjectId",
+          "fecha_pago": "date",
+          "metodo_pago": "string",
+          "estado": "string"  
+        }
+      }
+    ]
+  }
